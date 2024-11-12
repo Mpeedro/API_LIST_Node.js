@@ -1,0 +1,7 @@
+const { resolve } = require('path');
+
+module.exports = {
+    config: resolve(__dirname, 'src', 'config', 'database.js'), // O config:resolve dá o caminho absoluto para o arquivo database.js dentro de src/config. O __dirname é o diretório atual onde o script está sendo executado.
+    'migrations-path': resolve(__dirname, 'src', 'database', 'migrations'), // Caminho absoluto para a pasta onde as migrações são armazenadas. Migrações são usadas para alterar a estrutura do banco (ex: criar tabelas, adicionar colunas).
+    'seeders-path': resolve(__dirname, 'src', 'database', 'seeders'), // Caminho absoluto para a pasta onde os seeders são armazenados. Seeders são usados para popular o banco com dados iniciais ou de exemplo (não alteram a estrutura do banco, mas inserem dados).
+};
