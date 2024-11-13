@@ -1,8 +1,8 @@
 module.exports = {
     dialect: 'postgres',
-    host: '167.234.251.29',
-    username: 'mped',
-    password: '0000',
+    host: '167.xxx.xxx.x9',
+    username: 'xxx',
+    password: 'xxx',
     database: 'tasklist',
     define: {
         // Ativa a criação automática dos campos 'createdAt' e 'updatedAt' para registrar as datas de criação e atualização dos registros.
