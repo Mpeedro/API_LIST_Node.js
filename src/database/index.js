@@ -1,28 +1,25 @@
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database';
 import User from '../app/models/User';
+import Task from '../app/models/Task';
 
-const models = [User];
+const models = [User, Task];
 
 class Database {
   constructor() {
     this.init();
   }
 
-  async init() {
-    try {
-      // Estabelece a conexão com o banco de dados
+   init() {
+   
       this.connection = new Sequelize(databaseConfig);
-      // Testa a conexão para garantir que está ativa
-      await this.connection.authenticate();
+      this.connection.authenticate();
       console.log('Conectado ao PostgreSQL com sucesso!');
+      models
+      .map(model => model.init(this.connection))
+      .map(model => model.associate && model.associate(this.connection.models));
 
-      // Inicializa cada modelo com a conexão ativa
-      models.forEach(model => model.init(this.connection));
-    } catch (error) {
-      console.error('Erro ao conectar ao banco de dados:', error);
-    }
-  }
+}
 }
 
 export default new Database();

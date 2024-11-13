@@ -13,5 +13,5 @@ module.exports = {
 
         // Converte tanto os nomes das colunas quanto os nomes das tabelas para 'snake_case' = tabela: produtod_importados coluna: nome_do_produto.
         underscoredALL: true,
-    }
+    },
 };
